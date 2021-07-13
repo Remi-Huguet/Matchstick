@@ -5,9 +5,7 @@
 ## Makefile
 ##
 
-CFLAGS =	-W		\
-		-Wall		\
-		-Wextra
+CFLAGS =	-W -Wall -Wextra
 
 SRC =		src/main.c		\
 		src/get_map.c		\
@@ -22,19 +20,21 @@ SRC =		src/main.c		\
 		src/print_error_msg.c	\
 		src/print_msg.c
 
+OBJ =		$(SRC:.c=.o)
+
 NAME =		matchstick
 
 all:		$(NAME)
 
-$(NAME):
-		gcc -o $(NAME) $(SRC) -lncurses -g
+$(NAME):	$(OBJ)
+		gcc -o $(NAME) $(OBJ) $(CFLAGS) -lncurses
 
 clean:
-		rm -f $(OBJ)
+		$(RM) $(OBJ)
 		make -C tests/ clean
 
 fclean:		clean
-		rm -f $(NAME)
+		$(RM) $(NAME)
 		make -C tests/ fclean
 
 re:		fclean all

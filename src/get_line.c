@@ -11,7 +11,6 @@ int get_i(int nb, char **map)
 {
     char *buffer = NULL;
     size_t size = 0;
-    int i = 0;
     int line = -1;
 
     while (line == -1) {

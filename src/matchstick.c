@@ -25,7 +25,7 @@ int my_turn(char **map, int lgs, int nb, int *end)
     return (0);
 }
 
-int play(char **map, int lgs, int cls, int nb)
+int play(char **map, int lgs, int nb)
 {
     int end = 0;
 
@@ -52,6 +52,6 @@ int matchstick(int ac, char **av)
     map = get_map(lgs);
     if (!map)
         return (84);
-    rt = play(map, lgs + 2, (lgs - 1) * 2 + 3, my_getnbr(av[2]));
+    rt = play(map, lgs + 2, my_getnbr(av[2]));
     return (rt);
 }
